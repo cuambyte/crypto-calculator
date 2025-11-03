@@ -180,17 +180,7 @@ flutter test
 - [ ] Historial de conversiones
 - [ ] Modo offline con cache
 
----
-
-## 📄 Licencia
-
-Este proyecto fue desarrollado como parte de un coding challenge técnico.
-
----
-
 <div align="center">
-
-**Hecho con ❤️ y Flutter**
 
 ⭐ Si te gustó este proyecto, dale una estrella
 
