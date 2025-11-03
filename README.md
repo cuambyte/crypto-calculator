@@ -21,11 +21,11 @@
 
 ### Android
 
-*[Espacio reservado para video demo Android]*
+https://github.com/user-attachments/assets/a6854466-b527-4db8-a559-f64a38a883f9
 
 ### iOS
 
-*[Espacio reservado para video demo iOS]*
+https://github.com/user-attachments/assets/32faa560-6e04-4a00-a03f-ca6e2c438074
 
 </div>
 
