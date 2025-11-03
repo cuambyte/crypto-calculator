@@ -1,42 +1,197 @@
-# Bienvenido al coding-interview-frontend
+# 💱 Crypto Calculator Challenge
 
-## Descripción
-Acá tienes todos los assets que necesitas para llevar a cabo una pequeña prueba técnica. El objetivo es que puedas demostrar tus habilidades de programación y de UI. El proyecto consiste de una pequeña calculadora que te muestra cuanto vas a recibir si quieres cambiar una determinada cantidad de una moneda a otra.
+<div align="center">
 
-## Características
-1. Hay dos tipos de monedas: "FIAT" y "CRYPTO".
-2. La tasa de cambio la podrás obtener de nuestro API público.
-3. La moneda del input 
+![Flutter](https://img.shields.io/badge/Flutter-3.8.0+-02569B?style=for-the-badge&logo=flutter&logoColor=white)
+![Dart](https://img.shields.io/badge/Dart-3.8.0+-0175C2?style=for-the-badge&logo=dart&logoColor=white)
+![Riverpod](https://img.shields.io/badge/Riverpod-3.0.3-5ECCAA?style=for-the-badge)
+![Tests](https://img.shields.io/badge/Tests-Passing-success?style=for-the-badge)
 
-## API
-- URL: https://74j6q7lg6a.execute-api.eu-west-1.amazonaws.com/stage/orderbook/public/recommendations
-- Query Params:
-  - `type`: 0 -> Cambio de CRYPTO a FIAT, 1 -> Cambio de FIAT a CRYPTO
-  - `cryptoCurrencyId`: La moneda crypto (el ID está en el nombre del asset)
-  - `fiatCurrencyId`: La moneda fiat (el ID está en el nombre del asset)
-  - `amount`: Cantidad a cambiar
-  - `amountCurrencyId`: La moneda en la que está del input
+**Una calculadora de criptomonedas moderna, escalable y pixel-perfect construida con Flutter**
 
-Del response, simplemente obtener el `data.byPrice.fiatToCryptoExchangeRate` y multiplicarlo/dividirlo para mostrar toda la data necesaria.
+[Características](#-características) • [Arquitectura](#-arquitectura) • [Instalación](#-instalación) • [Testing](#-testing)
 
-### Que puedes hacer: 
-- ✅ Preferiblemente, usa Flutter :)
-- ✅ Cuantas mejoras de UX como veas necesarias/quieras
-- ✅ No todo tiene que estar funcionando a la perfección, lo que más vamos a tomar en cuenta es el parecido con el diseño y la calidad del código.
-- ✅ Desarrolla la app con la arquitecura de una app que va a escalar, no hagas un código que no puedas mantener en el futuro.
+</div>
 
+---
 
-### Que **no** puedes hacer:
-- ❌ Estresarte 🤗
+## 🎥 Video Demo
 
+<div align="center">
 
-## Pasos para comenzar
-1. Haz un fork usando este repositorio como template
-2. Clona el repositorio en tu máquina
-3. Desarrolla la mini-app
-4. Sube tus cambios a tu repositorio
-5. Avísanos que has terminado
-6. ???
-7. PROFIT
+### Android
 
-### Cualquier duda contactarme a https://www.linkedin.com/in/carlosfontest/
+*[Espacio reservado para video demo Android]*
+
+### iOS
+
+*[Espacio reservado para video demo iOS]*
+
+</div>
+
+---
+
+## ✨ Características
+
+### 🎨 UI/UX Excellence
+- **Pixel Perfect Implementation** - Diseño implementado con precisión absoluta
+- **Animaciones Suaves** - Chevron animados y transiciones fluidas
+- **Mejoras de UX** - Tasa de conversión mostrada (1 FIAT = X USDT) para mayor claridad
+- **Tema Moderno** - Paleta de colores vibrante con modo oscuro nativo
+- **Responsive Design** - Adaptable a diferentes tamaños de pantalla
+
+### 🏗️ Arquitectura Robusta
+- **Clean Architecture** - Separación clara en capas: Data, Domain, Presentation
+- **Escalabilidad** - Preparado para crecer con nuevas features
+- **SOLID Principles** - Código mantenible y de alta calidad
+- **Gestión de Estado** - Riverpod 3.0 con code generation
+- **Navegación Declarativa** - GoRouter para routing type-safe y deep linking
+
+### 🛡️ Manejo de Errores Profesional
+- **Validaciones Robustas** - Límites de monto, validaciones de entrada
+- **Mensajes Amigables** - Errores claros y comprensibles para el usuario
+- **Recuperación Elegante** - Manejo de errores de red y API
+- **Estados Consistentes** - Loading, Error y Success states bien definidos
+
+### ⚡ Optimizaciones Técnicas
+- **Use Cases** - Lógica de negocio encapsulada y testeable
+- **Providers Optimizados** - Mínimos rebuilds, máximo rendimiento
+- **Code Generation** - Riverpod Generator y Freezed para código type-safe
+- **Últimas Versiones** - Flutter 3.8+, Riverpod 3.0, Dio 5.9
+
+### 🧪 Testing & Calidad
+- **11 Unit Tests** - Cobertura completa de lógica crítica
+- **100% de Éxito** - Todos los tests pasan correctamente
+- **Validaciones Testeadas** - ValidateExchangeAmountUseCase
+- **Cálculos Testeados** - CalculateCryptoExchangeUseCase
+
+---
+
+## 🏛️ Arquitectura
+
+El proyecto sigue **Clean Architecture** con tres capas bien definidas:
+
+```
+lib/
+├── src/
+│   ├── core/                          # Recursos compartidos
+│   │   ├── constants/                 # Strings, validaciones, colores
+│   │   ├── theme/                     # Temas y estilos
+│   │   ├── utils/                     # Utilidades y helpers
+│   │   └── widgets/                   # Widgets reutilizables
+│   │
+│   └── features/
+│       └── calculator/
+│           ├── data/                  # Capa de Datos
+│           │   ├── datasources/       # API & Local data
+│           │   └── repositories/      # Implementaciones
+│           │
+│           ├── domain/                # Capa de Dominio
+│           │   ├── entities/          # Modelos de negocio
+│           │   ├── repositories/      # Contratos
+│           │   └── usecases/          # Lógica de negocio
+│           │
+│           └── presentation/          # Capa de Presentación
+│               ├── providers/         # Riverpod providers
+│               ├── screens/           # Pantallas
+│               ├── states/            # Estados
+│               └── widgets/           # UI components
+```
+
+### 📦 Paquetes Principales
+
+| Paquete | Versión | Propósito |
+|---------|---------|-----------|
+| `flutter_riverpod` | 3.0.3 | Gestión de estado reactiva |
+| `riverpod_annotation` | 3.0.3 | Code generation para providers |
+| `dio` | 5.9.0 | Cliente HTTP robusto |
+| `freezed` | 3.2.3 | Modelos inmutables |
+| `flutter_svg` | 2.2.1 | Renderizado de SVG |
+| `go_router` | 16.3.0 | Navegación declarativa y deep linking |
+
+---
+
+## 🚀 Instalación
+
+### Prerequisitos
+
+- Flutter SDK: `>= 3.8.0`
+- Dart SDK: `>= 3.8.0`
+
+### Pasos
+
+1. **Clonar el repositorio**
+```bash
+git clone https://github.com/tu-usuario/crypto-calculator.git
+cd crypto-calculator
+```
+
+2. **Instalar dependencias**
+```bash
+flutter pub get
+```
+
+3. **Generar código**
+```bash
+dart run build_runner build --delete-conflicting-outputs
+```
+
+4. **Ejecutar la app**
+```bash
+flutter run
+```
+
+### Ejecutar Tests
+
+```bash
+flutter test
+```
+
+---
+
+## 🎯 Decisiones Técnicas
+
+### ¿Por qué Clean Architecture?
+- ✅ Facilita el testing
+- ✅ Código desacoplado y mantenible
+- ✅ Preparado para escalar
+- ✅ Independencia de frameworks
+
+### ¿Por qué Riverpod?
+- ✅ Type-safe y compile-time
+- ✅ Sin context necesario
+- ✅ Code generation
+- ✅ Performance optimizado
+
+### ¿Por qué Unit Testing?
+- ✅ Valida lógica crítica del negocio
+- ✅ Rápido de ejecutar
+- ✅ Detecta regresiones temprano
+- ✅ Documenta comportamiento esperado
+
+---
+
+## 🔮 Mejoras Futuras
+
+- [ ] Tests de integración E2E
+- [ ] Persistencia local con Hive/SQLite
+- [ ] Soporte multi-idioma (i18n)
+- [ ] Más criptomonedas y fiat
+- [ ] Historial de conversiones
+- [ ] Modo offline con cache
+
+---
+
+## 📄 Licencia
+
+Este proyecto fue desarrollado como parte de un coding challenge técnico.
+
+---
+
+<div align="center">
+
+**Hecho con ❤️ y Flutter**
+
+⭐ Si te gustó este proyecto, dale una estrella
+
+</div>

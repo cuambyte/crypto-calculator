@@ -1,0 +1,1 @@
+enum CurrencyType { fiat, crypto }
