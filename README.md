@@ -133,7 +133,7 @@ flutter pub get
 
 3. **Generar código**
 ```bash
-dart run build_runner build --delete-conflicting-outputs
+dart run build_runner build -d
 ```
 
 4. **Ejecutar la app**
@@ -179,6 +179,8 @@ flutter test
 - [ ] Más criptomonedas y fiat
 - [ ] Historial de conversiones
 - [ ] Modo offline con cache
+
+---
 
 <div align="center">
 
